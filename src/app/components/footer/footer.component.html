@@ -1,0 +1,59 @@
+<div class="footer_sec wow fadeInUp">
+        <div class="container">
+         <div class="row">
+         
+         <div class="col-md-3">
+          <div class="footer_logo_sec">
+           <img src="assets/images/flogo.png" alt=""/>
+           <p>Two H Online Store lets you purchase from all US brands in Pakistan</p>
+         
+          </div> 
+         </div>
+         
+         <div class="col-md-2 col-xs-offset-1">
+          <div class="footer_nav">
+           <h2>Navigation</h2>
+             <ul>
+           
+           <li><a href="javascript:;">DEALS</a></li>
+           <li><a href="javascript:;">BRANDS</a></li>
+           <li><a href="javascript:;">HOW IT WORKS</a></li>
+           <li><a href="javascript:;">FAQ</a></li>
+           <li><a href="javascript:;">Contact Us</a></li>
+           </ul>
+          </div> 
+         </div>
+         
+             <div class="col-md-5 col-xs-offset-1">
+          <div class="footer_nav">
+           <h2>Quick contact</h2>
+           </div>
+           
+           <div class="row">
+            <div class="footer_form">
+            <form [formGroup]="contactForm" (ngSubmit)="PostMessage(contactForm.value)">
+            <div class="col-md-6" [ngClass]="{'has-error':!contactForm.controls['name'].valid && contactForm.controls['name'].touched}">
+                <input [formControl]="contactForm.controls['name']" name="name" id="name" type="text" class="form-control" placeholder="Name *" pattern=".{3,100}" required>
+            </div>
+            <div class="col-md-6" [ngClass]="{'has-error':!contactForm.controls['email'].valid && contactForm.controls['email'].touched}">
+                <input [formControl]="contactForm.controls['email']" name="email" id="email" type="Email" class="form-control" placeholder="Email *"  pattern=".{5,100}" required>
+            </div>
+            <div class="col-md-12" [ngClass]="{'has-error':!contactForm.controls['message'].valid && contactForm.controls['message'].touched}">
+                <textarea [formControl]="contactForm.controls['message']" id="message"  class="form-control" placeholder="comment *"></textarea>
+                <input type="submit" value="Submit Now" class="btn btn-default" id="submit_btn" [disabled]="!contactForm.valid">
+            </div>
+            <div id="result"></div>
+            </form>
+            </div>
+           </div>
+             
+          
+         </div>
+         
+         </div>
+       </div>
+       </div>
+       
+       <div class="copyright">
+        <p> Copyrights TWO H. All rights researved 2017</p>
+       </div>

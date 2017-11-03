@@ -1,0 +1,14 @@
+.blog-img{
+    width: 280px;
+    height: 160px
+}
+.owl-prev:before, .owl-next:before {
+    
+     background-color: grey; 
+}
+.fa-angle-right,.fa-angle-left{
+    color: white;
+}
+.row>.col-sm-6,.col-md-4,.col-lg-4{
+    margin: -1px;
+}

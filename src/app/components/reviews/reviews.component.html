@@ -1,0 +1,104 @@
+<!-- <section class="page-section bg-dark bg-dark-alfa-90 fullwidth-slider" data-background="images/full-width-images/section-bg-3.jpg"
+    id="reviews" (click)="closeMenu()">
+
+
+    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel" data-interval="10000">
+        <!--<ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+  </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item " *ngFor="let review of reviews;let i=index" [class.active]="i==0">
+                <!--<img class="d-block img-fluid" src="..." alt="First slide">
+                <div class="container relative">
+                    <div class="row">
+                        <div class="review-col col-md-12 align-center">
+                            <a href="{{review.link}}" target="_blank">
+                            <div class="section-icon">
+                                <!--<span class="icon-quote"></span>
+                                <img src="{{review.profile_pic}}" alt="" class="review-img img-circle">
+                            </div>
+                            <h3 class="small-title font-alt">{{review.name}}</h3>
+                            <blockquote class="testimonial white">
+                                <p>
+                                    {{review.review}}
+                                </p>
+                                <!--<footer class="testimonial-author">
+                                    {{review.name}}
+                                </footer>
+                            </blockquote>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+            <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+            <!--<div class="owl-prev"><i class="fa fa-angle-left"></i></div>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+            <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+            <!--<div class="owl-next"><i class="fa fa-angle-right"></i></div>
+        </a>
+    </div>
+    </section> -->
+    <!-- <div class="carousel-item " *ngFor="let review of reviews;let i=index" [class.active]="i==0">
+            <!--<img class="d-block img-fluid" src="..." alt="First slide">
+            <div class="container relative">
+                <div class="row">
+                    <div class="review-col col-md-12 align-center">
+                        <a href="{{review.link}}" target="_blank">
+                        <div class="section-icon">
+                            <!--<span class="icon-quote"></span>
+                            <img src="{{review.profile_pic}}" alt="" class="review-img img-circle">
+                        </div>
+                        <h3 class="small-title font-alt">{{review.name}}</h3>
+                        <blockquote class="testimonial white">
+                            <p>
+                                {{review.review}}
+                            </p>
+                            <!--<footer class="testimonial-author">
+                                {{review.name}}
+                            </footer>
+                        </blockquote>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="testimonial_sec wow fadeInDown">
+            <div class="container">
+             <div class="row">
+             
+             <div class="col-md-12">
+               <div class="howitwork_caption">
+                <h2>testimonials</h2>
+               </div>
+              </div>
+             
+             </div>
+             
+                 <div class="row">
+                    <div class="testimonial_slider"  *ngFor="let review of reviews;let i=index" >
+            
+                        <div class="item">
+                            <div class="testi_box">
+                                <p>{{review.review}}</p>
+                                <div class="author_sec">
+                                    <img src="{{review.profile_pic}}" alt="" target="_blank"/>
+                                    <h2><a href="{{review.link}}">{{review.name}}</a></h2>
+                                    <span>Designation</span>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>		
+                </div>
+             
+            </div>
+           </div>

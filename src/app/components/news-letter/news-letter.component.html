@@ -1,0 +1,52 @@
+<!-- Newsletter Section -->
+<!-- <section class="small-section bg-gray-lighter" (click)="closeMenu()">
+    <div class="container relative">
+
+        <form class="form align-center">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+
+                    <div class="newsletter-label font-alt">
+                        Get 10% off on shipping charges on your first order!
+                    </div>
+                   
+                    <div class="mb-20">
+  
+                    </div>
+                    <div class="form-tip">
+                        <i class="fa fa-info-circle"></i> Please trust us, we will never send you spam
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section> -->
+<!-- End Newsletter Section -->
+<div class="discount_sec wow fadeInDown"  id="mailchimp">
+        <div class="container">
+            <div class="row">
+            
+            <div class="discount_caption">
+            <h2><span>Get 10% off on <br/> shipping charges on</span></h2>
+            <p>Stay ahead, send us your email address here.</p>
+            <div class="email_sec">
+                    <form class="form contact-form" >
+                            
+                           
+                        </form>
+                <form id="subscribeForm" [formGroup]="subscribeForm" (ngSubmit)="subscribe(subscribeForm.value)">
+                    <input placeholder="Your Email" class="newsletter-field form-control input-md round mb-xs-10" type="email" formControlName="email"
+                    [ngClass]="{'has-error':!subscribeForm.controls['email'].valid && subscribeForm.controls['email'].touched}"style="box-sizing: initial;"
+                />
+                <!--<button type="submit" [disabled]="!subscribeForm.valid" class="btn btn-mod btn-medium btn-round mb-xs-10">
+                        Subscribe
+                    </button>-->
+                </form>
+                <div id="subscribe-result"></div>
+            </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,87 @@
+<section class="page-section brandsListPage" id="brands" (click)="closeMenu()">
+    <div class="container relative">
+
+        <h2 class="section-title font-alt mb-70 mb-sm-40" style="text-transform: none">
+            Which Brand Do You Want To Buy?
+        </h2>
+
+
+        <div class="row multi-columns-row alt-features-grid">
+
+            
+
+        </div>
+        <div style="margin-top: 10px">
+            <a href="javaScript:void(0)" class="btn btn-mod btn-border btn-circle btn-medium" (click)="emitContact()">Can't find my brand</a>
+        </div>
+    </div>
+</section>
+
+<div class="top_brand wow fadeInDown" id="brands">
+        <div class="container">
+         
+         <div class="row">
+         <div class="col-md-12">
+           <div class="howitwork_caption">
+            <h2>top brands</h2>
+           </div>
+          </div>
+         </div>
+         
+         <div class="row">
+          <div class="col-md-12">
+           <div class="tab_sec">
+            <ul>
+             <a href="javascript:;"><li class="active tab1">united states</li></a>
+             <a href="javascript:;"><li class="tab2">united kingdom</li></a>
+            </ul>
+           </div> 
+          </div>
+         </div>
+         
+         <div class="row">
+     
+             <div class="tabarea">
+                 <div class="tab-sec1">
+     
+     
+                     
+                     <div class="brand_logo">
+
+                            <ul>
+                                    <li *ngFor="let brand of brands"><a href="{{brand.url}}" target="_blank"><img src="{{brand.image}}" alt="{{brand.name}}" class="img-zoom"/></a></li>
+                            </ul>
+                     </div>
+                 </div>
+                 <div class="tab-sec2">
+                     <div class="brand_logo">
+                            <ul>
+                                    <li *ngFor="let brand of brands"><a href="{{brand.url}}" target="_blank"><img src="{{brand.image}}" alt="{{brand.name}}" class="img-zoom"/></a></li>
+                            </ul>
+                     </div>
+                 </div>
+             </div>
+     
+     
+     
+     
+     
+     
+             
+             <div class="row">
+             
+             <div class="col-md-5 col-xs-offset-4">
+             
+             <div class="top_btn_sec">
+                 <a href="javascript:;" class="btn btn-default"><span>How it works</span></a>
+                 <a href="javascript:;" class="btn btn-primary"><span>Order now</span></a>
+             </div>
+             
+             </div>
+             </div>
+             
+         </div>
+         
+        </div>
+       </div>
+

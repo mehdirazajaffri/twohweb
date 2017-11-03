@@ -1,0 +1,74 @@
+#carouselExample{
+    height: 100%;
+}
+div.carousel-item>img{
+    /*height:960px;*/
+    height: 100%;
+    width: 100%;
+}
+.header .carousel-item{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-position: inherit;
+}
+@media only screen and (max-device-width: 480px) {
+    .header{
+        height: 240px;
+    }
+    div.carousel-item>img{
+            width: 100%;
+            height: 100%;
+    }
+	}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+    .header{
+        height: 430px;
+    }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px){
+    .header{
+        height: 180px;
+    }
+}
+.main-nav.transparent {
+    opacity: 0.5;
+}
+.has-error {
+    border: 1px solid red;
+}
+.modal {
+    width: 600px;
+    position: fixed;
+    left: 50%;
+    top: 15%;
+    margin-left: -300px;
+    background: #fff;
+    box-sizing: border-box;
+    z-index: 99999;
+    border: 8px solid #fff;
+}
+.carousel-caption{
+    bottom: 0;
+    top: 30%
+}
+.btn-mod{
+     margin: 5px;
+}
+.btn-facebook {
+    background-color: #3B5998;
+    margin-bottom: 10px
+}
+
+.btn-facebook>i {
+    font-size: 20px;
+}
+.btn-banner{
+    min-width: 180px;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px){
+    .shop-detail{
+        margin-top: -40px;
+    }
+}

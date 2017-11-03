@@ -1,0 +1,48 @@
+li#abc{
+    margin-left: 400px;
+}
+ul{
+    display: block;
+}
+.btn-facebook{
+    background-color: #3B5998;
+}
+.btn-facebook>i{
+    font-size: 20px;
+}
+.btn-twitter{
+    background-color: #55ACEE;
+}
+.btn-twitter>i{
+    font-size: 20px
+}
+ngb-tabset>ul.nav>li>a{
+    background-color:  rgba(34, 34, 34, .9) !important;
+}
+#gender>ul>li{
+    width: 50%;
+
+}
+#gender>ul>li.active{
+    background-color: transparent !important;
+    border: 1px solid black;
+
+}
+.page-section{
+    padding: 150px 0;
+    height: 800px;
+}
+.has-error{
+    border: 1px solid red;
+}
+.modal {
+    width: 600px;
+    position: fixed;
+    left: 50%;
+    top: 15%;
+    margin-left: -300px;
+    background: #fff;
+    box-sizing: border-box;
+    z-index: 99999;
+    border: 8px solid #fff;
+}

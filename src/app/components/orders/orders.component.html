@@ -1,0 +1,76 @@
+<app-spinner></app-spinner>
+<section class="page-section" id="order" (click)="closeMenu()">
+    <div class="container relative ">
+
+        <h2 class="section-title font-alt mb-70 mb-sm-40">
+            Your Previous Orders
+        </h2>
+        <div class="order-panel">
+            <accordion [closeOthers]="true">
+                <accordion-group *ngFor="let order of orders;let i=index" heading="Order {{i+1}}" id="config-panel-{{i+1}}">
+
+                    <table class="table shopping-cart-table ">
+                        <tr>
+                            <th>
+                                Brand
+                            </th>
+                            <th>
+                                Quantity
+                            </th>
+                            <th>
+                                Shipping
+                            </th>
+                            <th>
+                                Price
+                            </th>
+
+                        </tr>
+                        <tbody>
+
+                            <tr *ngFor="let item of order.items;">
+                                <td>
+                                    <a href="{{item.url}}" target="_blank">{{item.url | websiteName}} </a>
+                                </td>
+                                <td>
+
+                                    {{item.quantity}}
+                                </td>
+                                <td>
+                                    {{item.shipping_charges}}
+                                </td>
+                                <td>
+                                    {{item.price}}
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr />
+                    <p>Order Number : {{order.order_number}}</p>
+                    <p>Order Status : {{order.order_status}}</p>
+                    <p>Total Amount of the Cart : <strong>{{order.total_amount|currency:'USD':true}}</strong></p>
+                    <p>Total Shipping from US to Pak : <strong>{{order.total_shipping|currency:'USD':true}}</strong></p>
+                    <p *ngIf='order.brand_shipping != undefined'>Brand Shipping : <strong>{{order.brand_shipping|currency:'USD':true}}</strong></p>
+                    <p>Taxes : <strong>{{order.tax|currency:'USD':true:'1.2'}}</strong> </p>
+                    <p>Service Charges : <strong>{{order.service_charges|currency:'USD':true}}</strong></p>
+                    <p> Total (USD) : <strong>{{order.grand_total|currency:'USD':true}}</strong></p>
+                    <p class="mb-10">Delivery Charges from US to Pak : <strong>{{order.delivery_charges|currency:'PKR':true}}</strong></p>
+                    <p class="imp-bill mt-0"> Total (PKR) : <strong>{{order.price_pkr|currency:'PKR':true}}</strong></p>
+                    <p class="mt-0"> Security Deposit : <strong>{{order.security_deposit|currency:'PKR':true}}</strong></p>
+                    <p class="mt-0"> Cash On Delivery : <strong>{{order.cod|currency:'PKR':true}}</strong></p>
+                    <p>If any of products run out of stock or if the price changes:
+                        <span *ngIf="order.contact_me_if_no_items">Contact Me</span>
+                        <span *ngIf="order.purchase_whatever_available">Purchase whatever is available</span>
+                    </p>
+
+
+
+
+                </accordion-group>
+            </accordion>
+        </div>
+
+
+
+    </div>
+</section>

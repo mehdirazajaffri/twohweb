@@ -1,0 +1,29 @@
+
+<div class="feature_sec wow fadeInDown">
+    <div class="container">
+        <div class="row">
+        
+        <div class="col-md-12">
+        <div class="howitwork_caption">
+            <h2>feature deals</h2>
+        </div>
+        </div>
+        </div>
+        
+        <div class="row">
+            <div class="feature_slider" *ngFor="let item of items">
+                    <div class="item">
+                            <div class="feature_box">
+                            <img [src]="item.image_url" alt=""/>
+                             <h3>Dresses & shirts</h3>
+                             <p>For Kids</p>
+                             <span>$ 59,00</span>
+                                <a target="_blank" href="http://{{ item.link }}">View Deal</a>
+                            </div>
+                          </div>
+                          
+            </div> 
+        </div>
+         
+        </div>
+</div>

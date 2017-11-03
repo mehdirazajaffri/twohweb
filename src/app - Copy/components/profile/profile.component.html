@@ -1,0 +1,123 @@
+<app-spinner></app-spinner>
+<section class="page-section" [ngClass]="{'profile-page':url == '/bill'}" (click)="closeMenu()">
+    <div [ngClass]="{'container relative':url != '/bill'}">
+
+        <!--<h2 class="section-title font-alt mb-70 mb-sm-40">
+            Profile
+        </h2>-->
+
+
+        <div class="card" [ngClass]="{'profile-page-card':url == '/bill'}">
+            <h3 class="card-header">Personal Information</h3>
+            <div class="card-block">
+                <div class="card-text" [ngClass]="{'bill-page':url == '/bill'}">
+                    <!--<p>
+                        Profile Picture : 
+                        <img src="{{user.profileImageURL}}" class="user-img img-circle">
+                        
+                        <button type="button" class="btn btn-mod btn-small btn-round" (click)="ImageModal.open()">Edit</button>
+                     </p>-->
+
+                    <div class="row">
+                        <div class="col-6">Username : </div>
+                        <div class="col-6">{{user.displayName}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">First Name : </div>
+                        <div class="col-6">{{user.firstName}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">Last Name : </div>
+                        <div class="col-6">{{user.lastName}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">Email : </div>
+                        <div class="col-6" style="text-transform: none">{{user.email}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">Phone :</div>
+                        <div class="col-6">{{user.phone}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">Gender : </div>
+                        <div class="col-6">{{user.gender}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">Date Of Birth : </div>
+                        <div class="col-6">{{user.dob}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">Address : </div>
+                        <div class="col-6">{{user.address}}</div>
+                    </div>
+                    <div style="text-align: center">
+                        <button type="button" class="btn btn-mod btn-medium btn-round" (click)="editProfileModal.open()">Edit Profile</button>
+                    </div>
+                    <div id="editMsg"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<modal #editProfileModal>
+    <modal-header>
+        <h4 class="modal-title">Personal Information</h4>
+        <a href="javaScript:void(0)" (click)="editProfileModal.close()" class="modal-icon"><i class="fa fa-times" aria-hidden="true"  ></i></a>
+    </modal-header>
+    <modal-body style="text-align: center">
+        <form class="form contact-form" id="contact_form" [formGroup]="complexForm" (ngSubmit)="editProfile(complexForm.value)">
+            <div class="clearfix">
+                <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['first_Name'].valid && complexForm.controls['first_Name'].touched}">
+                    <input type="text" [formControl]="complexForm.controls['first_Name']" class="input-md round form-control" placeholder="FirstName">
+                </div>
+                <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['last_Name'].valid && complexForm.controls['last_Name'].touched}">
+                    <input type="text" [formControl]="complexForm.controls['last_Name']" class="input-md round form-control" placeholder="LastName">
+                </div>
+                <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['username'].valid && complexForm.controls['username'].touched}">
+                    <input type="text" [formControl]="complexForm.controls['username']" class="input-md round form-control" placeholder="Username">
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['Email'].valid && complexForm.controls['Email'].touched}">
+                    <input type="text" [formControl]="complexForm.controls['Email']" class="input-md round form-control" placeholder="Email"
+                        required>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['PhoneNo'].valid && complexForm.controls['PhoneNo'].touched}">
+                    <input type="text" [formControl]="complexForm.controls['PhoneNo']" class="input-md round form-control" placeholder="Phone Number">
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['Date'].valid && complexForm.controls['Date'].touched}">
+                    <input type="date" [formControl]="complexForm.controls['Date']" class="input-md round form-control" placeholder="Date Of Birth">
+                </div>
+                <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['address'].valid && complexForm.controls['address'].touched}">
+                    <input type="text" [formControl]="complexForm.controls['address']" class="input-md round form-control" placeholder="Address">
+                </div>
+
+
+            </div>
+
+            <div class="pt-10">
+                <button class="submit_btn btn btn-mod btn-medium btn-round btn-full" id="reg-btn" type="submit" [disabled]="!complexForm.valid"
+                    (click)="editProfileModal.close()">Edit</button>
+            </div>
+
+
+        </form>
+
+
+
+    </modal-body>
+
+</modal>
+<modal #ImageModal>
+    <modal-header class="editProfileModal-header">
+        <h4 class="modal-title" style="width: 100%">Profile Picture</h4>
+    </modal-header>
+    <modal-body style="text-align: center">
+        <!--<input type="file" ng2FileSelect [uploader]="uploader"/>-->
+
+
+    </modal-body>
+
+</modal>

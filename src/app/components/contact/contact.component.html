@@ -1,0 +1,140 @@
+<!-- Contact Section -->
+<section class="page-section" id="contact" (click)="closeMenu()">
+    <div class="container relative">
+
+        <h2 class="section-title font-alt mb-70 mb-sm-40">
+            Contact
+        </h2>
+
+        <div class="row mb-60 mb-xs-40">
+
+            <div class="col-md-8 col-md-offset-2">
+                <div class="row">
+
+                    <!-- Phone -->
+                    <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
+                        <div class="contact-item">
+                            <div class="ci-icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="ci-title font-alt">
+                                Call Us
+                            </div>
+                            <div class="ci-text">
+                                +92 348 222 4161
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Phone -->
+
+                    <!-- Address -->
+                    <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
+                        <div class="contact-item">
+                            <div class="ci-icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div class="ci-title font-alt">
+                                Address
+                            </div>
+                            <div class="ci-text">
+                                1926 Summerfield Place, Sugar Land, TX, United States
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Address -->
+
+                    <!-- Email -->
+                    <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
+                        <div class="contact-item">
+                            <div class="ci-icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="ci-title font-alt">
+                                Email
+                            </div>
+                            <div class="ci-text">
+                                <a href="mailto:support@bestlooker.pro">contact@twohonlinestore.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Email -->
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Contact Form -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div id="contact-result"></div>
+
+                <form class="form contact-form" [formGroup]="contactForm" (ngSubmit)="PostMessage(contactForm.value)">
+                    <div class="clearfix">
+
+                        <div class="cf-left-col">
+
+                            <!-- Name -->
+                            <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['name'].valid && contactForm.controls['name'].touched}">
+                                <input type="text" [formControl]="contactForm.controls['name']" name="name" id="name" class="input-sm round form-control"
+                                    placeholder="Name" pattern=".{3,100}" required>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['email'].valid && contactForm.controls['email'].touched}">
+                                <input type="email" [formControl]="contactForm.controls['email']" name="email" id="email" class="input-sm round form-control"
+                                    placeholder="Email" pattern=".{5,100}" required>
+                            </div>
+                            <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['phoneNo'].valid && contactForm.controls['phoneNo'].touched}">
+                                <input type="text" [formControl]="contactForm.controls['phoneNo']" name="PhoneNo" id="PhoneNo" class="input-sm round form-control"
+                                    placeholder="Phone Number" pattern=".{5,100}" required>
+                            </div>
+
+                        </div>
+
+                        <div class="cf-right-col">
+
+                            <!-- Message -->
+                            <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['message'].valid && contactForm.controls['message'].touched}">
+                                <textarea name="message" [formControl]="contactForm.controls['message']" id="message" class="input-md round form-control"
+                                    style="height: 115px;" placeholder="Message"></textarea>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="clearfix">
+
+                        <div class="cf-left-col">
+
+                            <!-- Inform Tip -->
+                            <div class="form-tip pt-20">
+                                <i class="fa fa-info-circle"></i> All the fields are required
+                            </div>
+
+                        </div>
+
+                        <div class="cf-right-col">
+
+                            <!-- Send Button -->
+                            <div class="align-right pt-10">
+                                <button type="submit" class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn" [disabled]="!contactForm.valid">Submit Message</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div id="result"></div>
+                </form>
+
+            </div>
+        </div>
+        <!-- End Contact Form -->
+
+    </div>
+</section>
+<!-- End Contact Section -->

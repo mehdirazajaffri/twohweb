@@ -1,0 +1,68 @@
+<section class="page-section" id="news" (click)="closeMenu()">
+    <div class="container relative">
+
+        <h2 class="section-title font-alt align-left mb-70 mb-sm-40">
+            Latest News
+
+            <a href="blog-classic-sidebar-right.html" class="section-more right">All News in our blog <i class="fa fa-angle-right"></i></a>
+
+        </h2>
+
+
+        <section class="page-section fullwidth-slider" data-background="images/full-width-images/section-bg-3.jpg" (click)="closeMenu()">
+            <div id="carouselExampleIndicator3" class="carousel slide" data-ride="carousel" data-interval="3000" >
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicator3" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicator3" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicator3" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-inner" role="listbox" *ngIf="showBrands">
+
+                    <div class="row multi-columns-row carousel-item " *ngFor="let items of blogsToShow;let i=index" [class.active]="i==0">
+
+                        <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s"
+                         *ngFor="let item of items">
+
+                            <div class="post-prev-img">
+                                <a href="{{item.link}}" target="_blank"><img src="{{item.blog_url}}" alt="" class="blog-img" /></a>
+                            </div>
+
+                            <div class="post-prev-title font-alt">
+                                <a href="">{{item.title}}</a>
+                            </div>
+
+                            <div class="post-prev-info font-alt">
+                                {{item.summary}}
+                            </div>
+
+                            <div class="post-prev-text">
+
+                            </div>
+
+                            <div class="post-prev-more">
+                                <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicator3" role="button" data-slide="prev" *ngIf="blogs.length>3">
+                    <!--<span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black"></span>-->
+                    <span class="sr-only">Previous</span>
+                    <div class="owl-prev"><i class="fa fa-angle-left"></i></div>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicator3" role="button" data-slide="next" *ngIf="blogs.length>3">
+                    <!--<span class="carousel-control-next-icon" aria-hidden="true" style="background-color: black"></span>-->
+                    <span class="sr-only">Next</span>
+                    <div class="owl-next"><i class="fa fa-angle-right"></i></div>
+                </a>
+            </div>
+        </section>
+
+    </div>
+</section>

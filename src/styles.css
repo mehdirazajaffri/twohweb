@@ -1,0 +1,194 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/*html {
+    overflow: hidden
+}*/
+
+*{
+}
+.modal {
+    width: 600px;
+    position: fixed;
+    left: 50%;
+    padding: 20px !important;
+    top: 15%;
+    margin-left: -300px;
+    background: #fff;
+    box-sizing: border-box;
+    z-index: 99999;
+    border: 8px solid #fff;
+}
+div.intro {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+}
+
+div.intro>div {
+    margin: 100px;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+.owl-wrapper-outer {
+    height: 100% !important;
+}
+
+.nav-item>a.active {
+    background-color: rgba(34, 34, 34, .9) !important;
+    color: rgba(255, 255, 255, .85) !important;
+}
+
+.nav-item>a.active:hover {
+    background-color: rgba(0, 0, 0, .7) !important;
+}
+
+.nav-item>a.nav-link {
+    text-decoration: none !important;
+}
+
+.logo {
+    height: 55px !important;
+}
+
+.main-nav.transparent {
+    background: black !important;
+}
+
+#BuyNow:hover {
+    color: black;
+    background-color: white;
+}
+
+#BuyNow {
+    border: 1px solid white;
+    padding: 0 5px 0 5px;
+}
+
+.modal-open,
+.modal {
+    overflow-x: hidden;
+    overflow-y: hidden !important;
+}
+a{
+  text-decoration: none !important
+}
+#gender>ul>li{
+    width: 50%;
+    text-align: center;
+}
+#gender>ul>li>a.active{
+    background-color: transparent !important;
+    border: 1px solid black;
+    color: black !important;
+    
+}
+/*.main-nav{
+  position: absolute !important;
+}*/
+.page-section,.small-section{
+  padding: 50px 0;
+}
+input.form-control,textarea.form-control{
+  text-transform: none !important;
+}
+.user-profile>ngb-accordion>.card>.card-header{
+    background-color: rgba(34, 34, 34, 0.2);
+}
+.user-profile>ngb-accordion>.card>.card-header>a{
+  color: white;
+}
+.user-profile>ngb-accordion>.card>.active{
+    background-color: rgba(34, 34, 34, 0.55);
+}
+.order-panel>ngb-accordion>.card>.card-header{
+    background-color: rgba(34, 34, 34, 0.2);
+}
+.order-panel>ngb-accordion>.card>.card-header>a{
+  color: white;
+}
+.order-panel>ngb-accordion>.card>.active{
+    background-color: rgba(34, 34, 34, 0.55);
+}
+modal-header{
+    background-color: rgba(34, 34, 34, .8);
+    color: white;
+    text-align: center;
+
+}
+.modal-icon{
+  color: white
+}
+.modal-title{
+  width: 100%;
+}
+body{
+  font-size: 12px;
+}
+.modal-header{
+  margin: 0;
+  padding: 10px 15px;
+}
+.modal-header>h4{
+  margin: 0;
+}
+main-nav.dark .inner-nav ul>li>a:hover, .main-nav.dark .inner-nav ul>li>a.active {
+    font-weight: bold
+}
+section,footer{
+  text-transform: none;
+}
+p,h1,h2,h3,h4,h5,h6,button,a,div{
+
+}
+#gender>ul.nav-tabs{
+    border-bottom: none;
+}
+.main-nav.dark {
+    background-color: hsl(0, 0%, 4%);
+}
+.fade.show {
+    opacity: 1;
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity .15s linear;
+}
+.modal-backdrop.show{
+    opacity:.8;
+}
+.modal-backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #000;
+    left: 0;
+    top: 0;
+    display: block;
+    z-index: 9999;
+}

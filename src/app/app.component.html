@@ -1,0 +1,199 @@
+<!-- Navigation panel -->
+<div class="top_bar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="top_address">
+                    <ul>
+                        <li><i class="fa fa-envelope-o"></i><a href="mailto:info@twoh.com">info@twoh.com</a>
+                            <li>
+                                <li><i class="fa fa-mobile"></i><a href="tel:416122234892">4161 222 348 92+ </a>
+                                    <li>
+                                        <li><i class="fa fa-handshake-o"></i><a href="tel:416122234892">For Business</a>
+                                            <li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-xs-offset-4">
+                <div class="top_social">
+                    <a href="javascript:;"><i class="fa fa-facebook"></i></a>
+                    <a href="javascript:;"><i class="fa fa-twitter"></i></a>
+                    <a href="javascript:;"><i class="fa fa-google-plus"></i></a>
+                    <a href="javascript:;"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="header_sec">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-2">
+                <div class="logo_sec" routerLink="/home" fragment="home">
+                    <a href="index.html"><img src="assets/images/logo.png" lt="*"/></a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-offset-1">
+                <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav wow fadeInDown">
+                            <li><a routerLink="/home" fragment="services" class="fragment">How It Works</a></li>
+                            <li><a routerLink="/home" fragment="deals" class="fragment">Deals</a></li>
+                            <li><a routerLink="/home" fragment="brands" class="fragment">Brands</a></li>
+                            <li><a routerLink="/home" fragment="footer" class="fragment">Contact</a></li>
+                            <li><a routerLink='/help/faq' routerLinkActive="active">Faq</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="user_sec">
+                <span>
+                    <a (click)="odrdropdown()" id="odr" href="javascript:;" class="button"><span>Order Now</span></a>
+                    <ul class="sub to-left" id="usuk" style="display: none;">
+                        <li>
+                            <a (click)="BuyNow()" class="nav-list-items" href="javascript:;" >USA</a>
+                        </li>
+                        <li>
+                           <a (click)="BuyNowuk()" class="nav-list-items" href="javascript:;" >UK</a>
+                        </li>
+                    </ul>
+                </span>
+                    <a *ngIf="!Api.isLogin()" href="#signin" class="button" routerLink="/login"><span>SignIn</span></a>
+                    <span class="hidden" id="userLogin">
+            <a href="javaScript:void(0)" class="mn-has-sub font-xxs" (click)='menu()'>
+                <img src="assets/images/user_icon.png" alt=""/>
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="sub to-left" style="display: none;" id="user-details">
+
+                <li>
+                    <a id='displayName' href="javaScript:void(0)" class="nav-list-items" routerLink="/profile" style="font-size: 12px;text-transform: none !important">{{Api.getUserFirstName()}}</a>
+                </li>
+                <li>
+                    <a href="javaScript:void(0)" class="nav-list-items" (click)="GoToOrders()" style="font-size: 12px;text-transform: none !important">My Orders</a>
+                </li>
+                <li>
+                    <a href="javaScript:void(0)" class="nav-list-items" (click)="Logout()" style="text-transform: none !important">Logout<i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px"></i></a>
+                </li>
+            </ul>
+        </span>
+                    <a href="javascript:;"></a>
+
+                    <div class="hidden cart_sec" id="order">
+                        <a href="javaScript:void(0)" (click)='checkBill()'>
+                <i class="fa fa-shopping-basket"></i>
+            </a>
+                        <span id="myCart">0</span>
+                        <ul class="sub to-left" style="display: none;" *ngIf='bill != undefined' id="cart-list">
+                            <li *ngFor="let item of bill.items">
+                                <a href="javaScript:void(0)" class="cart-items font-xxs nav-list-items" [ngClass]="{'hidden':item.url == undefined}">{{item.url |summary}}<i class="fa fa-trash-o pull-right" (click)="Delete(item)"></i></a>
+                            </li>
+                            <li>
+                                <a href="javaScript:void(0)" routerLink="/bill" class="nav-list-items" *ngIf="Api.hasBill()">Proceed to Checkout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<nav class="main-nav dark transparent stick-fixed" id="nav" style="display:none;">
+    <div class="nav-header hidden" *ngIf="promotion != undefined">
+        <p>{{promotion.text}}<a href="{{promotion.url}}" *ngIf='promotion.url != undefined' style="color: white" target="_blank">(Click Here) </a></p>
+
+    </div>
+
+</nav>
+<!-- End Navigation panel -->
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>
+<app-footer id="footer"></app-footer>
+<modal #loginModal>
+    <modal-header>
+        <h4 class="modal-title" style="width: 100%">Log in First</h4>
+        <a href="javaScript:void(0)" (click)="loginModal.close()" class="modal-icon"><i class="fa fa-times" aria-hidden="true"  ></i></a>
+    </modal-header>
+    <modal-body style="text-align: center">
+        <button class="btn btn-mod btn-medium btn-round btn-facebook " (click)="fbLogin()">
+                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                Sign in with Facebook
+             </button>
+        <p style="margin-bottom: 5px">OR
+            <p>
+
+
+                <div id="alert">
+
+                </div>
+                <form class="form contact-form" id="contact_form" [formGroup]="loginForm" (ngSubmit)="doLogin(loginForm.value)">
+                    <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['usernameOrEmail'].valid && loginForm.controls['usernameOrEmail'].touched}">
+                        <input type="email" [formControl]="loginForm.controls['usernameOrEmail']" class="input-md round form-control" placeholder="Email"
+                            required>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
+                        <input type="password" [formControl]="loginForm.controls['password']" class="input-md round form-control" placeholder="Password">
+                    </div>
+                    <hr/>
+                    <div class="pt-10">
+                        <div class="pull-left col-6">
+                            <span style="color: grey"> Don't have an account? </span>
+                            <a href="javaScript:void(0)" style="text-decoration: none" (click)="loginModal.close();gotoLoginPage()"> Sign up </a>
+                        </div>
+                        <button class="submit_btn btn btn-mod btn-medium btn-round col-6" id="reg-btn" type="submit" [disabled]="!loginForm.valid">Login</button>
+                    </div>
+                </form>
+
+    </modal-body>
+</modal>
+<modal #fbModal>
+    <modal-header>
+        <h4 class="modal-title" style="width: 100%">
+
+            Social Login
+        </h4>
+        <a href="javaScript:void(0)" (click)="fbModal.close()" class="modal-icon"><i class="fa fa-times" aria-hidden="true"  ></i></a>
+    </modal-header>
+    <modal-body style="text-align: center">
+        <div class="form-group" *ngIf="isEmail">
+            <input type="text" name="Email" id="Email" [(ngModel)]="modelAuth.email" class="input-md round form-control" placeholder="Email"
+                pattern=".{3,100}" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="phone" id="phone" [(ngModel)]="modelAuth.phoneNo" class="input-md round form-control" placeholder="Phone Number"
+                pattern=".{3,100}" required>
+        </div>
+        <div id="alert">
+
+        </div>
+
+    </modal-body>
+    <modal-footer>
+
+        <button class="btn btn-mod btn-round btn-medium" (click)="SocialSignUp(modelAuth.email, modelAuth.phoneNo, modelAuth.address)">
+                            Sign in
+                    </button>
+    </modal-footer>
+</modal>

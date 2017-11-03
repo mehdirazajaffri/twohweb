@@ -1,0 +1,17 @@
+ol.carousel-indicators{
+        bottom: -50px;
+}
+#reviews{
+        padding: 100px 0;
+}
+.testimonial>p{
+        font-size: 14px;
+        text-transform: none;
+}
+.review-img{
+        height: 75px;
+        width: auto
+}
+.review-col{
+        min-height: 300px
+}

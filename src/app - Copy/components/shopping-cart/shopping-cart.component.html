@@ -1,0 +1,192 @@
+<app-spinner></app-spinner>
+<section class="page-section" (click)="closeMenu()">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="alert error" *ngIf="isUnValide">
+                <i class="fa fa-lg  fa-times-circle"></i> Please enter URLs from the US website
+            </div>
+            <div id="alert">
+
+            </div>
+            <div *ngIf="newObj.length ==0" class="error" style="font-size: 20px;text-align: center;color:#ffa500;"><i class="fa fa-lg  fa-exclamation-triangle"></i> No items! Please add items</div>
+            <div *ngFor="let ob of newObj;let index = index">
+
+                <div *ngIf="ob.items.length>0">
+                    <h2 class="text-center heading">{{ob.name.name}}</h2>
+                    <table class="table">
+                        <thead>
+                            <tr class="table-heading">
+                                <th>#</th>
+                                <th>
+                                    <i class="fa fa-info-circle " aria-hidden="true "></i> URL
+                                </th>
+                                <th>
+                                    <i class="fa fa-info-circle " aria-hidden="true "></i> Additional Information
+                                </th>
+                                <th>
+                                    <i class="fa fa-info-circle " aria-hidden="true "></i> Price in USD$
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ob.items ;let i = index;" [class.invalid]="item.isInvalid">
+                                <td>{{i+1}}</td>
+                                <td>
+                                    <input id="img" on-focusout="scrapper()" type="text" placeholder="Enter Url here " class="input-md form-control" [(ngModel)]="item.url ">
+                                </td>
+                                <td>
+                                    <input id="info" type="text" placeholder="Please specify the size, color etc " class="input-md form-control" [(ngModel)]="item.info ">
+
+                                </td>
+                                <td>
+                                    <input id="price" type="number" placeholder="$" class="input-md form-control" [(ngModel)]="item.Price ">
+                                    <input id="image" type="hidden" placeholder="image" class="input-md form-control" [(ngModel)]="item.image ">
+
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0)" (click)="Delete(item)" class="btn-rm-add pull-right" *ngIf="newObj.length>1 || ob.items.length>1">
+                                        <i class="fa fa-trash " aria-hidden="true "></i><span class="hidden-xs remove">Remove</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <a href="javascript:void(0)" class="btn-rm-add" (click)="addProduct(index)"><i class="fa fa-plus " aria-hidden="true "></i>Add Item</a>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <button class="btn btn-mod btn-circle btn-medium 
+            col-md-5 col-md-offset-1" (click)="setToLocalStorage();ShopAgain() " routerLink="/buyNow">
+                    <span style="
+                    font-size: 10px;
+                    background-color: transparent;
+                    color: white;
+                    margin: 0"> Add another Product <br>
+                        <!--<div class="hidden-xs hidden-md hidden-sm"> Save this cart & add more products</div>-->
+                        </span>
+                        </button>
+                        <button class="btn btn-mod btn-circle btn-medium
+             col-md-5 col-md-offset-1" (click)="setToLocalStorage();postOrder()" [disabled]="newObj.length ==0">
+                            <span style="
+                font-size: 10px;
+                background-color: transparent;
+                color: white;
+                margin: 0 ">
+                                Show pricing in PKR <br>
+                                <!--<div class="hidden-xs hidden-md hidden-sm">I just want to buy from these products right now</div>-->
+                                </span>
+                                </button>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <app-brands (contact)="Contactmodal.open()"></app-brands>
+        </div>
+    </div>
+
+
+
+</section>
+<modal #AddvertiseModal>
+    <modal-header style="text-align: center">
+        <h4 class="modal-title" style="width: 100%">
+            Promotions
+        </h4>
+        <a href="javaScript:void(0)" (click)="closeModal()" class="modal-icon">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+    </modal-header>
+    <modal-body style="text-align: center">
+        <!--if you buy {{itemsLength+1}} items then you will get 30% discount-->
+        Buy it yourself and let us ship it with 100% cash on delivery! {{specialOffer |currency:'USD':false:'1.2'}}
+
+    </modal-body>
+    <modal-footer>
+        <button class="btn btn-mod btn-round btn-medium" (click)="closeModal();addItem();" style="margin: 0;margin-right: 5px">
+                            Yes
+                    </button>
+        <button class="btn btn-mod btn-round btn-medium" (click)="closeModal();gotoBill()" style="margin: 0">
+                            No
+                    </button>
+    </modal-footer>
+
+</modal>
+
+<modal #Contactmodal>
+    <modal-header style="text-align: center">
+        <h4 class="modal-title" style="width: 100%">Contact Us</h4>
+        <a href="javaScript:void(0)" (click)="Contactmodal.close()" class="modal-icon">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+    </modal-header>
+    <modal-body>
+        <div id="alert-modal-contact"></div>
+        <form class="form contact-form" [formGroup]="contactForm" (ngSubmit)="PostMessage(contactForm.value)">
+            <div class="clearfix">
+
+                <div class="cf-left-col">
+
+                    <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['name'].valid && contactForm.controls['name'].touched}">
+                        <input type="text" [formControl]="contactForm.controls['name']" name="name" id="name" class="input-sm round form-control"
+                            placeholder="Name" pattern=".{3,100}" required>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['email'].valid && contactForm.controls['email'].touched}">
+                        <input type="email" [formControl]="contactForm.controls['email']" name="email" id="email" class="input-sm round form-control"
+                            placeholder="Email" pattern=".{5,100}" required>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['phoneNo'].valid && contactForm.controls['phoneNo'].touched}">
+                        <input type="text" [formControl]="contactForm.controls['phoneNo']" name="PhoneNo" id="PhoneNo" class="input-sm round form-control"
+                            placeholder="Phone Number" pattern=".{5,100}" required>
+                    </div>
+
+                </div>
+
+                <div class="cf-right-col">
+
+                    <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['message'].valid && contactForm.controls['message'].touched}">
+                        <textarea name="message" [formControl]="contactForm.controls['message']" id="message" class="input-md round form-control"
+                            style="height: 115px;" placeholder="Message"></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+            <hr/>
+            <div class="clearfix">
+
+                <div class="cf-left-col">
+
+                    <div class="form-tip pt-20">
+                        <i class="fa fa-info-circle"></i> All the fields are required
+                    </div>
+
+                </div>
+
+                <div class="cf-right-col">
+
+                    <div class="align-right pt-10">
+                        <button type="submit" class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn" [disabled]="!contactForm.valid">Submit Message</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div id="result"></div>
+        </form>
+    </modal-body>
+
+</modal>

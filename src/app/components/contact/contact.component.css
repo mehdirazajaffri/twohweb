@@ -1,0 +1,6 @@
+.has-error{
+    border: 1px solid red;
+}
+.col-sm-6,.col-lg-4{
+    margin: -1px;
+}

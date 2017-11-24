@@ -63,11 +63,11 @@
 
                 <div class="handbag_form">
                 <label>Enter URL</label>
-                        <input id="img" on-focusout="scrapper()" type="text" placeholder="Enter Url here " class="input-md form-control" [(ngModel)]="item.url ">
+                        <input id="url" on-focusout="scrapper()" type="text" placeholder="Paste product URL" class="input-md form-control" [(ngModel)]="item.url ">
                 </div>
                 
                 <div class="handbag_form">
-                <label>Size/Color</label>
+                <label>Additional info</label>
                         <input id="info" type="text" placeholder="Please specify the size, color etc " class="input-md form-control" [(ngModel)]="item.info ">
                 </div>
                 
@@ -81,7 +81,7 @@
                 
             <div class="col-md-2">
                 <div class="product_beg">
-                    <img src="assets/images/product1.jpg" alt=""/>
+                    <img id="proimg" src="" alt=""/>
                 </div>
             </div>
 

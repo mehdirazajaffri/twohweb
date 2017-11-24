@@ -279,23 +279,44 @@ export class ShoppingCartComponent implements OnInit {
     }
 
   }
+  transform(value: number): number {
+    return Math.round(value);
+}
   scrapper(){
-      // var data = {
-      //   url :$("#img").val()
-      // }
-      // this.Api.scrap(data)
-      // .subscribe(
-      //   (data)=>{
-      //     $("#price").val(data.price.replace(/[^\d.-]/g, ''))
-      //     $("#info").val(data.color)
-      //     $("#image").val(data.img)
-      //     this.spinner.stop();
-      //   },
-      //   (err)=>{
-      //     console.log(err);
-      //   }
-      // )
-  }
+    var data = {
+      url :$("#url").val()
+    }
+    if(data.url){
+      this.Api.scrap(data)
+      .subscribe(
+        (data)=>{
+          if(data.price){
+            this.transform($("#price").attr('ng-reflect-model', data.price.replace(/[^0-9,.]/, "")))
+            this.transform($("#price").attr('value', data.price.replace(/[^0-9,.]/, "")))
+            this.transform($("#price").val(data.price.replace(/[^0-9,.]/, "")))
+            $("#price").trigger('input'); // Use for Chrome/Firefox/Edge
+            $("#price").trigger('change');
+            $("#price").triggerHandler('input')
+            this.newObj[0].items.push({
+              Price: data.price.replace(/[^0-9,.]/, "")
+            })
+            // var old = localStorage.getItem('myCart');
+            // if(old === null) old = "";
+            // localStorage.setItem('myCart', old + JSON.stringify({price : data.price}));
+          }
+          $("#info").val(data.dis)
+          $("#image").val(data.img)
+          $("#proimg").attr('src', data.img)          
+          this.spinner.stop();
+          
+        },
+        (err)=>{
+          console.log(err);
+
+        }
+      )
+    }
+}
   doLogin(user) {
     this.Api.loginUser(user)
       .subscribe(

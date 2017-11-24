@@ -1,97 +1,200 @@
 <app-spinner></app-spinner>
 <section class="page-section" (click)="closeMenu()">
-    <div class="container relative">
 
-        <h2 class="section-title font-alt mb-70 mb-sm-40">
-            What are we buying today?
-        </h2>
-
-
-        <div class="row multi-columns-row alt-features-grid">
-            <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2" *ngFor="let item of items">
-                <div class="alt-features-item align-center item" (click)="onClick(item);qty=1;EndShopping();">
-                    <div class="alt-features-icon">
-                        <img src="{{item.image}}" alt="Work" *ngIf="item.image != undefined" class="item-img" />
-                        <i class="fa fa-question" aria-hidden="true" *ngIf="item.image == undefined"></i>
-                    </div>
-                    <h3 class="alt-features-title font-alt" style="font-size: 11px">{{item.name}}</h3>
-                    <div class="alt-features-descr align-left">
-
-                    </div>
-                </div>
+    <div class="whatweare_sec">
+        <div class="container">
+         <div class="row">
+         
+         <div class="whatweare_caption wow fadeInDown">
+          <h2>what are we <span>buying today?</span></h2>
+         </div>
+         
+         </div>
+         
+         <div class="row">
+          <div class="col-md-7 col-xs-offset-2">
+           <div class="row">
+          <div class="inner_service wow fadeInDown">
+          
+           <div class="col-md-6">
+            <div class="inner_service_box">
+             <ul>
+            <li><span class="icon1"><img src="assets/images/icon1.png" alt=""/></span>
+            <a href="javascript:;" data-hover="Women’s Apparel">Women’s Apparel</a>
+             <div class="list-item">
+              <ul>
+               <li *ngFor="let item of items" >
+                 <a *ngIf="item.parent_cat == 'women'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+               </li>
+              </ul>
+              </div>
+            </li>
+            <li><span class="icon2"><img src="assets/images/icon2.png" alt=""/></span>
+            <a href="javascript:;">Baby/kids Apparel</a>
+            <div class="list-item">
+              <ul>
+                  <li *ngFor="let item of items" >
+                    <a *ngIf="item.parent_cat == 'kid'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+                  </li> 
+              </ul>
+              </div>
+            </li>
+             <li><span class="icon6"><img src="assets/images/icon6.png" alt=""/></span><a href="javascript:;">Others</a>
+              <div class="list-item">
+              <ul>
+                  <li *ngFor="let item of items" >
+                    <a *ngIf="item.parent_cat == 'other'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+                  </li> 
+              </ul>
+              </div>
+            </li>
+         
+           </ul>
             </div>
+           </div>
+           
+             <div class="col-md-6">
+            <div class="inner_service_box">
+             <ul>
+            <li><span class="icon4"><img src="assets/images/icon4.png" alt=""/></span><a href="javascript:;">Men’s Apparel</a>
+             <div class="list-item">
+              <ul>
+                  <li *ngFor="let item of items" >
+                    <a *ngIf="item.parent_cat == 'men'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+                  </li> 
+              </ul>
+              </div>
+            </li>
+            <li><span class="icon5"><img src="assets/images/icon5.png" alt=""/></span><a href="javascript:;">Cosmetics</a>
+               <div class="list-item">
+              <ul>
+                  <li *ngFor="let item of items" >
+                    <a *ngIf="item.parent_cat == 'cosmetic'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+                  </li> 
+              </ul>
+              </div>
+            </li>
+           
+           </ul>
+            </div>
+           </div>
+           
+          </div>
+          
+          </div>
+       
+         </div>
+         
         </div>
-        <div style="margin-top: 20px">
-            <a href="javaScript:void(0)" class="btn btn-mod btn-border btn-circle btn-medium" (click)="contactUs.open()">Can't find my Product</a>
+        <div class="cant-btn">
+            <a href="javascript:;" class="btn btn-default" (click)="contactUs.open()"><span>Can't Find My Product</span></a>
+          </div>
+         </div>
+       </div>
+       
+
+
+
+
+
+
+
+
+
+
+  <!--<div class="container relative">
+
+    <h2 class="section-title font-alt mb-70 mb-sm-40">
+      What are we buying today?
+    </h2>
+
+
+    <div class="row multi-columns-row alt-features-grid">
+      <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2" *ngFor="let item of items">
+        <div class="alt-features-item align-center item" (click)="onClick(item);qty=1;EndShopping();">
+          <div class="alt-features-icon">
+            <img src="{{item.image}}" alt="Work" *ngIf="item.image != undefined" class="item-img" />
+            <i class="fa fa-question" aria-hidden="true" *ngIf="item.image == undefined"></i>
+          </div>
+          <h3 class="alt-features-title font-alt" style="font-size: 11px">{{item.name}}</h3>
+          <div class="alt-features-descr align-left">
+
+          </div>
         </div>
+      </div>
     </div>
+    
+    <div style="margin-top: 20px">
+      <a href="javaScript:void(0)" class="btn btn-mod btn-border btn-circle btn-medium" (click)="contactUs.open()">Can't find my Product</a>
+    </div>
+  </div> -->
 
 </section>
 <modal #contactUs>
-    <modal-header style="text-align: center">
-        <h4 class="modal-title" style="width: 100%">Contact Us</h4>
-        <a href="javaScript:void(0)" (click)="contactUs.close()" class="modal-icon">
+  <modal-header style="text-align: center">
+    <h4 class="modal-title" style="width: 100%">Contact Us</h4>
+    <a href="javaScript:void(0)" (click)="contactUs.close()" class="modal-icon">
             <i class="fa fa-times" aria-hidden="true"></i>
         </a>
-    </modal-header>
-    <modal-body>
-        <div id="modal-alert"></div>
-        <form class="form contact-form" [formGroup]="contactForm" (ngSubmit)="PostMessage(contactForm.value)">
-            <div class="clearfix">
+  </modal-header>
+  <modal-body>
+    <div id="modal-alert"></div>
+    <form class="form contact-form" [formGroup]="contactForm" (ngSubmit)="PostMessage(contactForm.value)">
+      <div class="clearfix">
 
-                <div class="cf-left-col">
+        <div class="cf-left-col">
 
-                    <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['name'].valid && contactForm.controls['name'].touched}">
-                        <input type="text" [formControl]="contactForm.controls['name']" name="name" id="name" class="input-sm round form-control"
-                            placeholder="Name" pattern=".{3,100}" required>
-                    </div>
+          <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['name'].valid && contactForm.controls['name'].touched}">
+            <input type="text" [formControl]="contactForm.controls['name']" name="name" id="name" class="input-sm round form-control"
+              placeholder="Name" pattern=".{3,100}" required>
+          </div>
 
-                    <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['email'].valid && contactForm.controls['email'].touched}">
-                        <input type="email" [formControl]="contactForm.controls['email']" name="email" id="email" class="input-sm round form-control"
-                            placeholder="Email" pattern=".{5,100}" required>
-                    </div>
-                    <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['phoneNo'].valid && contactForm.controls['phoneNo'].touched}">
-                        <input type="text" [formControl]="contactForm.controls['phoneNo']" name="PhoneNo" id="PhoneNo" class="input-sm round form-control"
-                            placeholder="Phone Number" pattern=".{5,100}" required>
-                    </div>
+          <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['email'].valid && contactForm.controls['email'].touched}">
+            <input type="email" [formControl]="contactForm.controls['email']" name="email" id="email" class="input-sm round form-control"
+              placeholder="Email" pattern=".{5,100}" required>
+          </div>
+          <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['phoneNo'].valid && contactForm.controls['phoneNo'].touched}">
+            <input type="text" [formControl]="contactForm.controls['phoneNo']" name="PhoneNo" id="PhoneNo" class="input-sm round form-control"
+              placeholder="Phone Number" pattern=".{5,100}" required>
+          </div>
 
-                </div>
+        </div>
 
-                <div class="cf-right-col">
+        <div class="cf-right-col">
 
-                    <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['message'].valid && contactForm.controls['message'].touched}">
-                        <textarea name="message" [formControl]="contactForm.controls['message']" id="message" class="input-md round form-control"
-                            style="height: 115px;" placeholder="Message"></textarea>
-                    </div>
+          <div class="form-group" [ngClass]="{'has-error':!contactForm.controls['message'].valid && contactForm.controls['message'].touched}">
+            <textarea name="message" [formControl]="contactForm.controls['message']" id="message" class="input-md round form-control"
+              style="height: 115px;" placeholder="Message"></textarea>
+          </div>
 
-                </div>
+        </div>
 
-            </div>
-            <hr/>
-            <div class="clearfix">
+      </div>
+      <hr/>
+      <div class="clearfix">
 
-                <div class="cf-left-col">
+        <div class="cf-left-col">
 
-                    <div class="form-tip pt-20">
-                        <i class="fa fa-info-circle"></i> All the fields are required
-                    </div>
+          <div class="form-tip pt-20">
+            <i class="fa fa-info-circle"></i> All the fields are required
+          </div>
 
-                </div>
+        </div>
 
-                <div class="cf-right-col">
+        <div class="cf-right-col">
 
-                    <div class="align-right pt-10">
-                        <button type="submit" class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn" [disabled]="!contactForm.valid">Submit Message</button>
-                    </div>
+          <div class="align-right pt-10">
+            <button type="submit" class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn" [disabled]="!contactForm.valid">Submit Message</button>
+          </div>
 
-                </div>
+        </div>
 
-            </div>
+      </div>
 
 
 
-            <div id="result"></div>
-        </form>
-    </modal-body>
+      <div id="result"></div>
+    </form>
+  </modal-body>
 
 </modal>

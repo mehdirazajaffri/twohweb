@@ -134,7 +134,7 @@ Header
     background-color: transparent;
 }
 .nav > li {
-    padding: 10px 20px;
+    padding: 10px 15px;
 }
 .navbar-inverse {
     background-color: transparent;
@@ -169,8 +169,8 @@ Header
 }
 .user_sec .button
  {
-        float: left;
-        margin-right: 18px;
+        float: right;
+        margin-left: 18px;
         border: 1px solid #e45767;
         border-radius: 20px;
         padding: 6px 27px;
@@ -200,7 +200,8 @@ Header
     transition: 0.5s;
             }
 
- .user_sec .button span {position: relative;z-index: 1}           
+ .user_sec .button span {position: relative;z-index: 1}   
+ .user_sec .button span i {margin-right:10px;}        
   .user_sec .button:hover:before {left: 0;
     right: auto;
     width: 100%;}
@@ -1557,3 +1558,21 @@ a.delbtn {
     top: 53px;
     left: -8px;
 }
+.product_beg {
+    min-width: 90px;
+    min-height: 90px;
+}
+.product_beg img {
+    height: 100px;
+    width: 100px;
+}
+
+.btn-facebook 
+    {
+        color:#fff;
+    }
+
+    .btn-facebook:hover 
+        {
+            color:#fff;
+        }

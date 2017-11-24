@@ -63,17 +63,17 @@
 
                 <div class="handbag_form">
                 <label>Enter URL</label>
-                        <input id="url" on-focusout="scrapper()" type="text" placeholder="Enter Url here " class="input-md form-control" [(ngModel)]="item.url ">
+                        <input id="url" on-focusout="scrapper()" type="text" placeholder="Paste product URL" class="input-md form-control" [(ngModel)]="item.url ">
                 </div>
                 
                 <div class="handbag_form">
-                <label>Size/Color</label>
+                <label>Additional info</label>
                         <input id="info" type="text" placeholder="Please specify the size, color etc " class="input-md form-control" [(ngModel)]="item.info ">
                 </div>
                 
                 <div class="handbag_form">
-                <label>Price in Pounds</label>
-                        <input id="price" type="number" placeholder="Pounds" class="input-md form-control" [(ngModel)]="item.Price">
+                <label>Price in GBP £</label>
+                        <input id="price" type="number" placeholder="£" class="input-md form-control" [(ngModel)]="item.Price">
                         <input id="image" type="hidden" placeholder="image" class="input-md form-control" [(ngModel)]="item.image ">
                 </div>
 
@@ -81,7 +81,7 @@
                 
             <div class="col-md-2">
                 <div class="product_beg">
-                    <img id="proimg" src="assets/images/product1.jpg" alt=""/>
+                    <img id="proimg" src="" alt=""/>
                 </div>
             </div>
 

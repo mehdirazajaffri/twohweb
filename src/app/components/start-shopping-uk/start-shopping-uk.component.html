@@ -1,6 +1,108 @@
 <app-spinner></app-spinner>
 <section class="page-section" (click)="closeMenu()">
-  <div class="container relative">
+
+    <div class="whatweare_sec">
+        <div class="container">
+         <div class="row">
+         
+         <div class="whatweare_caption wow fadeInDown">
+          <h2>what are we <span>buying today?</span></h2>
+         </div>
+         
+         </div>
+         
+         <div class="row">
+          <div class="col-md-7 col-xs-offset-2">
+           <div class="row">
+          <div class="inner_service wow fadeInDown">
+          
+           <div class="col-md-6">
+            <div class="inner_service_box">
+             <ul>
+            <li><span class="icon1"><img src="assets/images/icon1.png" alt=""/></span>
+            <a href="javascript:;" data-hover="Women’s Apparel">Women’s Apparel</a>
+             <div class="list-item">
+              <ul>
+               <li *ngFor="let item of items" >
+                 <a *ngIf="item.parent_cat == 'women'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+               </li>
+              </ul>
+              </div>
+            </li>
+            <li><span class="icon2"><img src="assets/images/icon2.png" alt=""/></span>
+            <a href="javascript:;">Baby/kids Apparel</a>
+            <div class="list-item">
+              <ul>
+                  <li *ngFor="let item of items" >
+                    <a *ngIf="item.parent_cat == 'kid'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+                  </li> 
+              </ul>
+              </div>
+            </li>
+             <li><span class="icon6"><img src="assets/images/icon6.png" alt=""/></span><a href="javascript:;">Others</a>
+              <div class="list-item">
+              <ul>
+                  <li *ngFor="let item of items" >
+                    <a *ngIf="item.parent_cat == 'other'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+                  </li> 
+              </ul>
+              </div>
+            </li>
+         
+           </ul>
+            </div>
+           </div>
+           
+             <div class="col-md-6">
+            <div class="inner_service_box">
+             <ul>
+            <li><span class="icon4"><img src="assets/images/icon4.png" alt=""/></span><a href="javascript:;">Men’s Apparel</a>
+             <div class="list-item">
+              <ul>
+                  <li *ngFor="let item of items" >
+                    <a *ngIf="item.parent_cat == 'men'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+                  </li> 
+              </ul>
+              </div>
+            </li>
+            <li><span class="icon5"><img src="assets/images/icon5.png" alt=""/></span><a href="javascript:;">Cosmetics</a>
+               <div class="list-item">
+              <ul>
+                  <li *ngFor="let item of items" >
+                    <a *ngIf="item.parent_cat == 'cosmetic'" (click)="onClick(item);qty=1;EndShopping();" href="javascript:;" >{{item.name}}</a>
+                  </li> 
+              </ul>
+              </div>
+            </li>
+           
+           </ul>
+            </div>
+           </div>
+           
+          </div>
+          
+          </div>
+       
+         </div>
+         
+        </div>
+        <div class="cant-btn">
+            <a href="javascript:;" class="btn btn-default" (click)="contactUs.open()"><span>Can't Find My Product</span></a>
+          </div>
+         </div>
+       </div>
+       
+
+
+
+
+
+
+
+
+
+
+  <!--<div class="container relative">
 
     <h2 class="section-title font-alt mb-70 mb-sm-40">
       What are we buying today?
@@ -21,10 +123,11 @@
         </div>
       </div>
     </div>
+    
     <div style="margin-top: 20px">
       <a href="javaScript:void(0)" class="btn btn-mod btn-border btn-circle btn-medium" (click)="contactUs.open()">Can't find my Product</a>
     </div>
-  </div>
+  </div> -->
 
 </section>
 <modal #contactUs>

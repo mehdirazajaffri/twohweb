@@ -95,6 +95,7 @@ export class ShoppingCartComponent implements OnInit,PipeTransform {
             info: "",
             Price: undefined,
             image: '',
+            title: '',
             quantity: 1,
             isInvalid: false,
             product_id: this.obj.item._id
@@ -114,6 +115,7 @@ export class ShoppingCartComponent implements OnInit,PipeTransform {
             info: "",
             Price: undefined,
             image: '',
+            title: '',
             quantity: 1,
             isInvalid: false,
             product_id: this.obj.item._id
@@ -213,6 +215,7 @@ export class ShoppingCartComponent implements OnInit,PipeTransform {
           additional_info: objitems[i].info,
           price: objitems[i].Price,
           image: objitems[i].image,
+          title: objitems[i].title,
           quantity: objitems[i].quantity,
           product_id: objitems[i].product_id,
           brand_id: (brand != undefined) ? brand._id : '',
@@ -284,38 +287,51 @@ export class ShoppingCartComponent implements OnInit,PipeTransform {
     }
 
   }
-  scrapper(){
-      var data = {
-        url :$("#url").val()
-      }
-      if(data.url){
-        this.Api.scrap(data)
-        .subscribe(
-          (data)=>{
-            if(data.price){
-              this.transform($("#price").attr('ng-reflect-model', data.price.replace(/[^0-9,.]/, "")))
-              this.transform($("#price").attr('value', data.price.replace(/[^0-9,.]/, "")))
-              this.transform($("#price").val(data.price.replace(/[^0-9,.]/, "")))
-              $("#price").trigger('input'); // Use for Chrome/Firefox/Edge
-              $("#price").trigger('change');
-              $("#price").triggerHandler('input')
-              // var old = localStorage.getItem('myCart');
-              // if(old === null) old = "";
-              // localStorage.setItem('myCart', old + JSON.stringify({price : data.price}));
-            }
-            $("#info").val(data.dis)
-            $("#image").val(data.img)
-            $("#proimg").attr('src', data.img)          
-            this.spinner.stop();
-            
-          },
-          (err)=>{
-            console.log(err);
+  scrapper(index, i, item){
+    
+    var data = {
+      url :$("#url" + index + i).val()
+    }
+    if(data.url){
+      this.Api.scrap(data)
+      .subscribe(
+        (data)=>{
+          if(data.price){
+            this.transform($("#price" + index + i).attr('ng-reflect-model', data.price.replace(/[^0-9,.]/, "")))
+            this.transform($("#price" + index + i).attr('value', data.price.replace(/[^0-9,.]/, "")))
+            this.transform($("#price" + index + i).val(data.price.replace(/[^0-9,.]/, "")))
+            // $("#price").trigger('input'); // Use for Chrome/Firefox/Edge
+            // $("#price").trigger('change');
+            // $("#price").triggerHandler('input')
 
+            var input = $("#price" + index + i);
+            input.val(data.price.replace(/[^0-9,.]/, ""));
+            input.trigger('input'); // Use for Chrome/Firefox/Edge
+            input.trigger('change');
+            input.val(data.price.replace(/[^0-9,.]/, "")).change();
+            item.Price = this.transform(data.price.replace(/[^0-9,.]/, ""));
+            // var old = localStorage.getItem('myCart');
+            // if(old === null) old = "";
+            // localStorage.setItem('myCart', old + JSON.stringify({price : data.price}));
           }
-        )
-      }
-  }
+          $("#info" + index + i).val(data.dis)
+          item.info = data.dis;
+
+          item.title = data.title;
+          
+          $("#image" + index + i).val(data.img)
+          item.image = data.img;     
+          $("#proimg" + index + i).attr('src', data.img)          
+          this.spinner.stop();
+          this.setToLocalStorage()
+        },
+        (err)=>{
+          console.log(err);
+
+        }
+      )
+    }
+}
   doLogin(user) {
     this.Api.loginUser(user)
       .subscribe(
@@ -408,6 +424,7 @@ export class ShoppingCartComponent implements OnInit,PipeTransform {
       info: "",
       Price: undefined,
       image: this.obj[0].item.image,
+      title: '',
       quantity: 1,
       isInvalid: false,
       product_id: this.obj[0].item._id
@@ -439,6 +456,7 @@ export class ShoppingCartComponent implements OnInit,PipeTransform {
         info: "",
         Price: undefined,
         image: "",
+        title: '',
         quantity: 1,
         isInvalid: false,
         product_id: this.newObj[i].name._id

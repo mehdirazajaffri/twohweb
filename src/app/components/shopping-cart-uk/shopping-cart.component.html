@@ -1,3 +1,4 @@
+
 <app-spinner></app-spinner>
 
 <div class="handbag_sec wow fadeInDown">
@@ -39,7 +40,7 @@
 
      <div class="col-md-8">
         <div class="alert error" *ngIf="isUnValide">
-            <i class="fa fa-lg  fa-times-circle"></i> Please enter URLs from the US website
+            <i class="fa fa-lg  fa-times-circle"></i> Please enter URLs from the UK website
         </div>
         <div id="alert">
 
@@ -56,32 +57,32 @@
        <div *ngFor="let item of ob.items ;let i = index;" [class.invalid]="item.isInvalid">
 
             <div class="col-md-10" >
-
+                
                 <a href="javascript:void(0)" (click)="Delete(item)" class="btn-rm-add delbtn" *ngIf="newObj.length>1 || ob.items.length>1">
                     <i class="fa fa-trash " aria-hidden="true "></i><span class="hidden-xs remove"></span>
                 </a>
 
                 <div class="handbag_form">
                 <label>Enter URL</label>
-                        <input id="url" on-focusout="scrapper()" type="text" placeholder="Paste product URL" class="input-md form-control" [(ngModel)]="item.url ">
+                        <input id="url{{ index  }}{{ i }}" on-focusout="scrapper( index, i, item )" type="text" placeholder="Paste product URL" class="input-md form-control" [(ngModel)]="item.url ">
                 </div>
                 
                 <div class="handbag_form">
                 <label>Additional info</label>
-                        <input id="info" type="text" placeholder="Please specify the size, color etc " class="input-md form-control" [(ngModel)]="item.info ">
+                        <input id="info{{ index  }}{{ i }}" type="text" placeholder="Please specify the size, color etc " class="input-md form-control" [(ngModel)]="item.info ">
                 </div>
                 
                 <div class="handbag_form">
-                <label>Price in GBP £</label>
-                        <input id="price" type="number" placeholder="£" class="input-md form-control" [(ngModel)]="item.Price">
-                        <input id="image" type="hidden" placeholder="image" class="input-md form-control" [(ngModel)]="item.image ">
+                <label>PRICE IN GBP £</label>
+                        <input id="price{{ index  }}{{ i }}" type="number" placeholder="£" class="input-md form-control" [(ngModel)]="item.Price" >
+                        <input id="image{{ index  }}{{ i }}" type="hidden" placeholder="image" class="input-md form-control" [(ngModel)]="item.image">
                 </div>
 
             </div>
                 
             <div class="col-md-2">
                 <div class="product_beg">
-                    <img id="proimg" src="" alt=""/>
+                    <img id="proimg{{ index  }}{{ i }}" src="{{ item.image }}" alt=""/>
                 </div>
             </div>
 
@@ -97,7 +98,7 @@
        <div class="row">
         <div class="col-md-12">
          <div class="addproduct-btn">
-          <a class="addproduct-btn-bg" href="javascript:;" (click)="setToLocalStorage();ShopAgain() " routerLink="/buyNowuk"><span>Add More Product</span></a>
+          <a class="addproduct-btn-bg" href="javascript:;" (click)="setToLocalStorage();ShopAgain() " routerLink="/buyNow"><span>Add More Product</span></a>
           <button href="javascript:;" (click)="setToLocalStorage();postOrder()" style="background: transparent;vertical-align: top;"><span>Show price in PRK</span></button>
          </div>
         </div>

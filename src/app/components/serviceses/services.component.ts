@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private homeComponent: HomeComponent) { }
   closeMenu() {
     if (document.getElementById('cart-list').style.display != 'none')
       document.getElementById('cart-list').style.display = 'none';
@@ -15,7 +15,9 @@ export class ServicesComponent implements OnInit {
       document.getElementById('user-details').style.display = 'none';
       console.log('closeMenu')
   }
-
+  orderNow() {
+    this.homeComponent.BuyNow();
+  }
   ngOnInit() {
   }
 

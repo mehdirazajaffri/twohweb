@@ -5,8 +5,8 @@ import { Headers,RequestOptions } from '@angular/http';
 export class GlobalService {
 
   constructor() { }
-    //public static serverApi = 'http://localhost:3000/api/';
-  public static serverApi = 'https://twohserver.herokuapp.com/api/';
+   public static serverApi = 'http://localhost:3000/api/';
+   //public static serverApi = 'https://twohserver.herokuapp.com/api/';
    //public static serverApi = 'https://two-h-online-server.herokuapp.com/api/';
   // public static serverApi = 'http://192.168.0.108:3000/api/';
   // public static serverApi = 'https://twohonline-sv.herokuapp.com/api/';

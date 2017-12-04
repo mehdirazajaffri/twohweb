@@ -4,7 +4,7 @@ import { ApiService } from '../../apiServices/api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrandsService } from '../../apiServices/brands.service';
 import { BrandsukService } from '../../apiServices/brandsuk.service';
-//import { HomeComponent } from '../home/home.component';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-brands',
@@ -18,7 +18,9 @@ export class BrandsComponent implements OnInit {
     private Api: ApiService,
     private formBuilder: FormBuilder,
     private _brands: BrandsService,
-    private _brandsuk: BrandsukService
+    private _brandsuk: BrandsukService,
+    private homeComponent: HomeComponent
+    
   ) {
     this.setBrands();
     this.setBrandsuk();
@@ -74,7 +76,7 @@ export class BrandsComponent implements OnInit {
     }
   }
   orderNow() {
-    //this.homeComponent.BuyNow();
+    this.homeComponent.BuyNow();
   }
   setItemsToShow() {
 

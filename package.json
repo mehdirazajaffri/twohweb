@@ -42,7 +42,8 @@
     "smoothscroll": "^0.3.0",
     "socket.io-client": "^1.7.2",
     "ts-helpers": "^1.1.1",
-    "zone.js": "^0.6.23"
+    "zone.js": "^0.6.23",
+    "tether": "^1.1.0"
   },
   "devDependencies": {
     "@angular/cli": "^1.2.3",
